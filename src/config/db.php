@@ -18,7 +18,7 @@
         //     $this->$dbname = getenv('DB_DATABASE');
         // }
 
-        Properties
+        // Properties
         private $dbhost = 'localhost';
         private $dbuser = 'root';
         private $dbpass = '123456';
