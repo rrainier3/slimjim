@@ -1,8 +1,8 @@
 <?php
     class db{
-
-        // Get Env Vars
         private $dbhost = getenv('DB_HOST');
+        // Get Env Vars
+
         private $dbuser = getenv('DB_USER');
         private $dbpass = getenv('DB_PASSWORD');
         private $dbname = getenv('DB_DATABASE');
