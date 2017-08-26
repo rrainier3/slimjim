@@ -7,15 +7,15 @@
         protected $dbpass = null;
         protected $dbname = null;
 
-        function __construct() {
+        function __construct(getenv('DB_HOST')) {
 
             $this->$dbhost = getenv('DB_HOST');
+            echo $this->$dbhost;
+
             $this->$dbuser = getenv('DB_USER');
             $this->$dbpass = getenv('DB_PASSWORD');
             $this->$dbname = getenv('DB_DATABASE');
         }
-
-        echo "blah blah";
 
         // Properties
         // private $dbhost = 'localhost';
