@@ -7,10 +7,10 @@
         private $dbpass;
         private $dbname;
 
-        $dbhost = getenv('DB_HOST');
-        $dbuser = getenv('DB_USER');
-        $dbpass = getenv('DB_PASSWORD');
-        $dbname = getenv('DB_DATABASE');
+        $this->$dbhost = getenv('DB_HOST');
+        $this->$dbuser = getenv('DB_USER');
+        $this->$dbpass = getenv('DB_PASSWORD');
+        $this->$dbname = getenv('DB_DATABASE');
 
         // Properties
         // private $dbhost = 'localhost';
