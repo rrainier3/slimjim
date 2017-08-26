@@ -2,15 +2,18 @@
     class db{
 
         // Get Env Properties
-        private $dbhost;
-        private $dbuser;
-        private $dbpass;
-        private $dbname;
+        protected $dbhost = null;
+        protected $dbuser = null;
+        protected $dbpass = null;
+        protected $dbname = null;
 
-        $this->$dbhost = getenv('DB_HOST');
-        $this->$dbuser = getenv('DB_USER');
-        $this->$dbpass = getenv('DB_PASSWORD');
-        $this->$dbname = getenv('DB_DATABASE');
+        function __construct() {
+
+            $this->$dbhost = getenv('DB_HOST');
+            $this->$dbuser = getenv('DB_USER');
+            $this->$dbpass = getenv('DB_PASSWORD');
+            $this->$dbname = getenv('DB_DATABASE');
+        }
 
         // Properties
         // private $dbhost = 'localhost';
