@@ -5,7 +5,7 @@
         private $dbhost = getenv('DB_HOST');
         private $dbuser = getenv('DB_USER');
         private $dbpass = getenv('DB_PASSWORD');
-        private $dbname = getenv('DB_DATABASE')
+        private $dbname = getenv('DB_DATABASE');
 
         // Properties
         // private $dbhost = 'localhost';
