@@ -1,19 +1,16 @@
 <?php
     class db{
 
-        $this_string = "Testing 12344";
+        // Get Env Properties
+        private $dbhost;
+        private $dbuser;
+        private $dbpass;
+        private $dbname;
 
-        echo $this_string;
-
-        $dbhost = getenv("DB_HOST");
-
-        echo $dbhost;
-
-        // Get Env Vars
-
-        private $dbuser = getenv('DB_USER');
-        private $dbpass = getenv('DB_PASSWORD');
-        private $dbname = getenv('DB_DATABASE');
+        $dbhost = getenv('DB_HOST');
+        $dbuser = getenv('DB_USER');
+        $dbpass = getenv('DB_PASSWORD');
+        $dbname = getenv('DB_DATABASE');
 
         // Properties
         // private $dbhost = 'localhost';
