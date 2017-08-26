@@ -15,9 +15,8 @@
             $this->$dbname = getenv('DB_DATABASE');
         }
 
-        echo $this->$dbhost;
-        echo $this->$dbuser;
-        
+        echo getenv('DB_HOST');
+
         // Properties
         // private $dbhost = 'localhost';
         // private $dbuser = 'root';
