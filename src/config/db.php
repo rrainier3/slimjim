@@ -2,8 +2,8 @@
     class db{
 
         // Get Env Properties
-        protected $dbhost = getenv('DB_HOST');
-        protected $dbuser = getenv('DB_USER');
+        protected $dbhost = getenv(DB_HOST);
+        protected $dbuser = getenv(DB_USER);
         protected $dbpass = getenv('DB_PASSWORD');
         protected $dbname = getenv('DB_DATABASE');
 
