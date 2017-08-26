@@ -1,5 +1,8 @@
 {
     "require": {
+	"php": "^5.6.0",
+	"php-http/curl-client": "^1.0",
+	"php-http/message": "^1.0",
         "slim/slim": "^3.0"
     }
 }
