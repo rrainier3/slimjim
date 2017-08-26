@@ -1,9 +1,14 @@
 <?php
     class db{
-        $dbhost = getenv('DB_HOST');
+
+        $this_string = 'Testing 12344';
+
+        echo $this_string;
+
+        $dbhost = getenv ('DB_HOST');
 
         echo $dbhost;
-        
+
         // Get Env Vars
 
         private $dbuser = getenv('DB_USER');
