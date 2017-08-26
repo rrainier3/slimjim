@@ -1,11 +1,11 @@
 <?php
     class db{
 
-        $this_string = 'Testing 12344';
+        $this_string = "Testing 12344";
 
         echo $this_string;
 
-        $dbhost = getenv ('DB_HOST');
+        $dbhost = getenv("DB_HOST");
 
         echo $dbhost;
 
