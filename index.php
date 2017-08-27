@@ -5,6 +5,9 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require 'vendor/autoload.php';
 require 'src/config/db.php';
 
+// Customer Routes
+require 'src/routes/customers.php';
+
 $app = new \Slim\App;
 $app->get('/hello/{name}', function (Request $request, Response $response) {
     
@@ -18,8 +21,5 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
 
     return $response;
 });
-
-// Customer Routes
-require 'src/routes/customers.php';
 
 $app->run();
