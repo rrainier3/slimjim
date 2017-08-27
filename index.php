@@ -12,9 +12,9 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
     
     $response->getBody()->write("Hello, $name" . "<br>");
 
-    $dbhost = getenv('DB_HOST');
+    // $dbhost = getenv('DB_HOST');
     
-    $response->getBody()->write("Hostname: $dbhost");
+    // $response->getBody()->write("Hostname: $dbhost");
 
     return $response;
 });
