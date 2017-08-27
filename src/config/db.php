@@ -12,8 +12,6 @@
         private $dbpass = '123456';
         private $dbname = 'slimapp';
 
-        echo "blah blah" . $dbhost;
-
         // Connect
         public function connect(){
             $mysql_connect_str = "mysql:host=$this->dbhost;dbname=$this->dbname";
