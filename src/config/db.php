@@ -12,7 +12,7 @@
         private $dbpass = '123456';
         private $dbname = 'slimapp';
 
-        echo "dbhost = {$dbhost} \n dbuser = {$dbuser} \n";
+        echo "blah blah" . $dbhost;
 
         // Connect
         public function connect(){
