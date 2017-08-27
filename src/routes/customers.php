@@ -19,8 +19,10 @@ $app->add(function ($req, $res, $next) {
 // Get All Customers
 $app->get('/api/customers', function(Request $request, Response $response){
 
-    echo "CUSTOMERS";
-    
+    $dbhost = getenv('DB_HOST');
+
+    echo $dbhost;
+
     // $sql = "SELECT * FROM customers";
 
     // try{
