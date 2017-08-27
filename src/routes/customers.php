@@ -21,7 +21,7 @@ $app->add(function ($req, $res, $next) {
 $app->get('/api/customers', function(Request $request, Response $response){
 
 
-    $sql = "SELECT * FROM customers";
+    
 
     try{
         // // Get DB Object
@@ -29,8 +29,8 @@ $app->get('/api/customers', function(Request $request, Response $response){
         // // Connect
         // $db = $db->connect();
 
-        global $db;
-        
+        $sql = "SELECT * FROM customers";
+
         $dbhost = getenv('DB_HOST');
         $dbuser = getenv('DB_USERNAME');
         $dbpass = getenv('DB_PASSWORD');
