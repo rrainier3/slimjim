@@ -13,7 +13,6 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
     return $response;
 });
 
-echo "THE BIG FIX";
 // Customer Routes
 //require 'src/routes/customers.php';
 
