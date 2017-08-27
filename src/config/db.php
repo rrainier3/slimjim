@@ -7,12 +7,12 @@
             $this->$server = $_ENV['DB_HOST'];
         }
 
-        echo "This server is " . $this->$server;
-
         private $dbhost = 'localhost';
         private $dbuser = 'root';
         private $dbpass = '123456';
         private $dbname = 'slimapp';
+
+        echo "dbhost = {$dbhost} \n dbuser = {$dbuser} \n";
 
         // Connect
         public function connect(){
