@@ -18,21 +18,24 @@ $app->add(function ($req, $res, $next) {
 
 // Get All Customers
 $app->get('/api/customers', function(Request $request, Response $response){
-    $sql = "SELECT * FROM customers";
 
-    try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
+    echo "CUSTOMERS";
+    
+    // $sql = "SELECT * FROM customers";
 
-        $stmt = $db->query($sql);
-        $customers = $stmt->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
-        echo json_encode($customers);
-    } catch(PDOException $e){
-        echo '{"error": {"text": '.$e->getMessage().'}';
-    }
+    // try{
+    //     // Get DB Object
+    //     $db = new db();
+    //     // Connect
+    //     $db = $db->connect();
+
+    //     $stmt = $db->query($sql);
+    //     $customers = $stmt->fetchAll(PDO::FETCH_OBJ);
+    //     $db = null;
+    //     echo json_encode($customers);
+    // } catch(PDOException $e){
+    //     echo '{"error": {"text": '.$e->getMessage().'}';
+    // }
 });
 
 // Get Single Customer
