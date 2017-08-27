@@ -1,7 +1,11 @@
 <?php
     class db{
-        // Properties
-        private $server = $_ENV["DB_HOST"];
+
+        protected $server;
+
+        public function __construct(){
+            $this->$server = $_ENV['DB_HOST'];
+        }
 
         //echo $server;
         print($server);
