@@ -7,8 +7,7 @@
             $this->$server = $_ENV['DB_HOST'];
         }
 
-        //echo $server;
-        print($server);
+        echo "This server is " . $this->$server;
 
         private $dbhost = 'localhost';
         private $dbuser = 'root';
