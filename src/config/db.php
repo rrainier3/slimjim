@@ -5,6 +5,8 @@
 
         public function __construct(){
             $this->$server = $_ENV['DB_HOST'];
+
+            echo "{$this->$server}";
         }
 
         private $dbhost = 'localhost';
