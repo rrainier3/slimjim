@@ -6,12 +6,12 @@
         protected $dbpass = null;
         protected $dbname = null;
 
-        function __construct() {
-            $this->$dbhost = getenv('DB_HOST');
-            $this->$dbuser = getenv('DB_USERNAME');
-            $this->$dbpass = getenv('DB_PASSWORD');
-            $this->$dbname = getenv('DB_DATABASE');
-        }
+        // function __construct() {
+        //     $this->$dbhost = getenv('DB_HOST');
+        //     $this->$dbuser = getenv('DB_USERNAME');
+        //     $this->$dbpass = getenv('DB_PASSWORD');
+        //     $this->$dbname = getenv('DB_DATABASE');
+        // }
 
         // Connect
         public function connect(){
