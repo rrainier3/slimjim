@@ -19,9 +19,25 @@ $app->add(function ($req, $res, $next) {
 // Get All Customers
 $app->get('/api/customers', function(Request $request, Response $response){
 
-    $dbhost = getenv('DB_HOST');
+    $sql = "SELECT * FROM customers";
 
-    echo $dbhost;
+    try{
+        // // Get DB Object
+        // $db = new db();
+        // // Connect
+        // $db = $db->connect();
+
+        // let's get a DB connection
+        $db = connection_setup()
+
+        $stmt = $db->query($sql);
+        $customers = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($customers);
+        
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }   
 
     // $sql = "SELECT * FROM customers";
 
@@ -165,3 +181,17 @@ $app->delete('/api/customer/delete/{id}', function(Request $request, Response $r
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
 });
+
+function connection_setup() {
+
+    $dbhost = getenv('DB_HOST');
+    $dbuser = getenv('DB_USERNAME');
+    $dbpass = getenv('DB_PASSWORD');
+    $dbname = getenv('DB_DATABASE');
+
+    $mysql_connect_str = "mysql:host=$this->dbhost;dbname=$this->dbname";
+    $dbConnection = new PDO($mysql_connect_str, $this->dbuser, $this->dbpass);
+    $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    return $$dbConnection;
+}
