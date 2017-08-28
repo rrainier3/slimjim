@@ -78,10 +78,6 @@ $app->post('/api/customer/add', function(Request $request, Response $response){
     (:first_name,:last_name,:phone,:email,:address,:city,:state)";
 
     try{
-        // // Get DB Object
-        // $db = new db();
-        // // Connect
-        // $db = $db->connect();
 
         $db = connection_setup();
 
@@ -127,10 +123,8 @@ $app->put('/api/customer/update/{id}', function(Request $request, Response $resp
 			WHERE id = $id";
 
     try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
+
+        $db = connection_setup();
 
         $stmt = $db->prepare($sql);
 
@@ -158,12 +152,11 @@ $app->delete('/api/customer/delete/{id}', function(Request $request, Response $r
     $sql = "DELETE FROM customers WHERE id = $id";
 
     try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
+
+        $db = connection_setup();
 
         $stmt = $db->prepare($sql);
+        
         $stmt->execute();
         $db = null;
         echo '{"notice": {"text": "Customer Deleted"}';
