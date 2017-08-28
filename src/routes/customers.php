@@ -36,14 +36,20 @@ $app->get('/api/customers', function(Request $request, Response $response){
         $dbpass = getenv('DB_PASSWORD');
         $dbname = getenv('DB_DATABASE');
 
-        $mysql_connect_str = "mysql:host={$dbhost};dbname={$dbname}";
-        $$db = new PDO($mysql_connect_str, $dbuser, $dbpass);
-        $$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo $dbhost;
+        echo $dbname;
 
-        $stmt = $db->query($sql);
-        $customers = $stmt->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
-        echo json_encode($customers);
+        $mysql_connect_str = "mysql:host={$dbhost};dbname={$dbname}";
+
+        echo $mysql_connect_str;
+        
+        // $$db = new PDO($mysql_connect_str, $dbuser, $dbpass);
+        // $$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // $stmt = $db->query($sql);
+        // $customers = $stmt->fetchAll(PDO::FETCH_OBJ);
+        // $db = null;
+        // echo json_encode($customers);
         
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
