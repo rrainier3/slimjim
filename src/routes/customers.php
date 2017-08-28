@@ -20,71 +20,44 @@ $app->add(function ($req, $res, $next) {
 // Get All Customers
 $app->get('/api/customers', function(Request $request, Response $response){
 
-
-    
-
     try{
-        // // Get DB Object
-        // $db = new db();
-        // // Connect
-        // $db = $db->connect();
 
         $sql = "SELECT * FROM customers";
-
-        // $dbhost = getenv('DB_HOST');
-        // $dbuser = getenv('DB_USERNAME');
-        // $dbpass = getenv('DB_PASSWORD');
-        // $dbname = getenv('DB_DATABASE');
-
-        // $mysql_connect_str = "mysql:host={$dbhost};dbname={$dbname}";
-
-        // $db = new PDO($mysql_connect_str, $dbuser, $dbpass);
-        // $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $db = connection_setup();
 
         $stmt = $db->query($sql);
+
         $customers = $stmt->fetchAll(PDO::FETCH_OBJ);
+
         $db = null;
+
         echo json_encode($customers);
         
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }   
 
-    // $sql = "SELECT * FROM customers";
-
-    // try{
-    //     // Get DB Object
-    //     $db = new db();
-    //     // Connect
-    //     $db = $db->connect();
-
-    //     $stmt = $db->query($sql);
-    //     $customers = $stmt->fetchAll(PDO::FETCH_OBJ);
-    //     $db = null;
-    //     echo json_encode($customers);
-    // } catch(PDOException $e){
-    //     echo '{"error": {"text": '.$e->getMessage().'}';
-    // }
 });
 
 // Get Single Customer
 $app->get('/api/customer/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute('id');
 
-    $sql = "SELECT * FROM customers WHERE id = $id";
-
     try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
+
+        $sql = "SELECT * FROM customers WHERE id = $id";
+
+        $db = connection_setup();
 
         $stmt = $db->query($sql);
+
         $customer = $stmt->fetch(PDO::FETCH_OBJ);
+
         $db = null;
+
         echo json_encode($customer);
+        
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
@@ -92,6 +65,7 @@ $app->get('/api/customer/{id}', function(Request $request, Response $response){
 
 // Add Customer
 $app->post('/api/customer/add', function(Request $request, Response $response){
+
     $first_name = $request->getParam('first_name');
     $last_name = $request->getParam('last_name');
     $phone = $request->getParam('phone');
@@ -130,6 +104,7 @@ $app->post('/api/customer/add', function(Request $request, Response $response){
 
 // Update Customer
 $app->put('/api/customer/update/{id}', function(Request $request, Response $response){
+
     $id = $request->getAttribute('id');
     $first_name = $request->getParam('first_name');
     $last_name = $request->getParam('last_name');

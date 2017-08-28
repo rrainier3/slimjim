@@ -1,17 +1,10 @@
 <?php
     class db{
 
-        protected $dbhost = null;
-        protected $dbuser = null;
-        protected $dbpass = null;
-        protected $dbname = null;
-
-        // function __construct() {
-        //     $this->$dbhost = getenv('DB_HOST');
-        //     $this->$dbuser = getenv('DB_USERNAME');
-        //     $this->$dbpass = getenv('DB_PASSWORD');
-        //     $this->$dbname = getenv('DB_DATABASE');
-        // }
+        private $dbhost = 'localhost';
+        private $dbuser = 'root';
+        private $dbpass = '123456';
+        private $dbname = 'slimapp';
 
         // Connect
         public function connect(){
