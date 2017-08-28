@@ -31,26 +31,17 @@ $app->get('/api/customers', function(Request $request, Response $response){
 
         $sql = "SELECT * FROM customers";
 
-        $dbhost = getenv('DB_HOST');
-        $dbuser = getenv('DB_USERNAME');
-        $dbpass = getenv('DB_PASSWORD');
-        $dbname = getenv('DB_DATABASE');
+        // $dbhost = getenv('DB_HOST');
+        // $dbuser = getenv('DB_USERNAME');
+        // $dbpass = getenv('DB_PASSWORD');
+        // $dbname = getenv('DB_DATABASE');
 
-        echo $dbhost;
-        echo "<br>";
-        echo $dbname;
-        echo "<br>";
-        echo $dbuser;
-        echo "<br>";
-        echo $dbpass;
-        echo "<br>";
+        // $mysql_connect_str = "mysql:host={$dbhost};dbname={$dbname}";
 
-        $mysql_connect_str = "mysql:host={$dbhost};dbname={$dbname}";
+        // $db = new PDO($mysql_connect_str, $dbuser, $dbpass);
+        // $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        echo $mysql_connect_str;
-
-        $db = new PDO($mysql_connect_str, $dbuser, $dbpass);
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $db = connection_setup();
 
         $stmt = $db->query($sql);
         $customers = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -211,9 +202,10 @@ function connection_setup() {
     $dbpass = getenv('DB_PASSWORD');
     $dbname = getenv('DB_DATABASE');
 
-    $mysql_connect_str = "mysql:host=$this->dbhost;dbname=$this->dbname";
-    $dbConnection = new PDO($mysql_connect_str, $this->dbuser, $this->dbpass);
-    $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $mysql_connect_str = "mysql:host={$dbhost};dbname={$dbname}";
 
-    return $$dbConnection;
+    $db = new PDO($mysql_connect_str, $dbuser, $dbpass);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    return $db;
 }
