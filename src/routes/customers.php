@@ -57,7 +57,7 @@ $app->get('/api/customer/{id}', function(Request $request, Response $response){
         $db = null;
 
         echo json_encode($customer);
-        
+
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
@@ -78,10 +78,12 @@ $app->post('/api/customer/add', function(Request $request, Response $response){
     (:first_name,:last_name,:phone,:email,:address,:city,:state)";
 
     try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
+        // // Get DB Object
+        // $db = new db();
+        // // Connect
+        // $db = $db->connect();
+
+        $db = connection_setup();
 
         $stmt = $db->prepare($sql);
 
