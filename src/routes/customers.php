@@ -37,12 +37,14 @@ $app->get('/api/customers', function(Request $request, Response $response){
         $dbname = getenv('DB_DATABASE');
 
         echo $dbhost;
+        echo "<br>";
         echo $dbname;
+        echo "<br>";
 
         $mysql_connect_str = "mysql:host={$dbhost};dbname={$dbname}";
 
         echo $mysql_connect_str;
-        
+
         // $$db = new PDO($mysql_connect_str, $dbuser, $dbpass);
         // $$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
