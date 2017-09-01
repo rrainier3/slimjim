@@ -62,11 +62,12 @@ $app->get('/api/customer/{id}', function(Request $request, Response $response){
         $db = null;
 
         echo '{
-                "result":';
+                "result": [ ';
 
         echo json_encode($customer);
 
-        echo '}';
+        echo '] 
+                }';
 
 
     } catch(PDOException $e){
