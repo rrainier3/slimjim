@@ -61,7 +61,13 @@ $app->get('/api/customer/{id}', function(Request $request, Response $response){
 
         $db = null;
 
+        echo '{
+                "result":';
+
         echo json_encode($customer);
+
+        echo '}';
+
 
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
